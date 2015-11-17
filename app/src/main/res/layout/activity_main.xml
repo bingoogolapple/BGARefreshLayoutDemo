@@ -3,15 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/MatchMatch.Vertical">
 
-    <Button
-        style="@style/MatchWrap"
-        android:onClick="testAFVPF"
-        android:text="测试AFVPF" />
+    <LinearLayout style="@style/MatchWrap.Horizontal">
 
-    <Button
-        style="@style/MatchWrap"
-        android:onClick="testAFF"
-        android:text="测试AFF" />
+        <Button
+            style="@style/AutoWrap"
+            android:onClick="testAFVPF"
+            android:text="测试AFVPF" />
+
+        <Button
+            style="@style/AutoWrap"
+            android:onClick="testAFF"
+            android:text="测试AFF" />
+    </LinearLayout>
+
 
     <cn.bingoogolapple.bgaindicator.BGAFixedIndicator
         android:id="@+id/indicator"

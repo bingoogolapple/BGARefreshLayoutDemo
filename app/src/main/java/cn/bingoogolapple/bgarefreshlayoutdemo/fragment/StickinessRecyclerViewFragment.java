@@ -72,8 +72,8 @@ public class StickinessRecyclerViewFragment extends BaseFragment implements BGAR
     @Override
     protected void processLogic(Bundle savedInstanceState) {
         BGAStickinessRefreshViewHolder stickinessRefreshViewHolder = new BGAStickinessRefreshViewHolder(mApp, true);
-        stickinessRefreshViewHolder.setStickinessColor(R.color.custom_stickiness);
-        stickinessRefreshViewHolder.setRotateImage(R.mipmap.custom_stickiness_roate);
+        stickinessRefreshViewHolder.setStickinessColor(R.color.custom_stickiness2);
+        stickinessRefreshViewHolder.setRotateImage(R.mipmap.bga_refresh_stickiness);
         mRefreshLayout.setRefreshViewHolder(stickinessRefreshViewHolder);
 
         mDataRv.addItemDecoration(new Divider(mApp));
@@ -108,7 +108,6 @@ public class StickinessRecyclerViewFragment extends BaseFragment implements BGAR
             return;
         }
 
-        showLoadingDialog();
         mEngine.loadNewData(mNewPageNumber).enqueue(new Callback<List<RefreshModel>>() {
             @Override
             public void onResponse(final Response<List<RefreshModel>> response, Retrofit retrofit) {
@@ -116,7 +115,6 @@ public class StickinessRecyclerViewFragment extends BaseFragment implements BGAR
                     @Override
                     public void run() {
                         mRefreshLayout.endRefreshing();
-                        dismissLoadingDialog();
                         mAdapter.addNewDatas(response.body());
                         mDataRv.smoothScrollToPosition(0);
                     }
@@ -126,7 +124,6 @@ public class StickinessRecyclerViewFragment extends BaseFragment implements BGAR
             @Override
             public void onFailure(Throwable t) {
                 mRefreshLayout.endRefreshing();
-                dismissLoadingDialog();
             }
         });
     }

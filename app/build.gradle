@@ -22,7 +22,7 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:recyclerview-v7:23.1.1'
-    compile 'cn.bingoogolapple:bga-refreshlayout:1.0.9@aar'
+    compile 'cn.bingoogolapple:bga-refreshlayout:1.1.0@aar'
 
     compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
     compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'

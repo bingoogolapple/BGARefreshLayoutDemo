@@ -88,6 +88,7 @@ public class AFFFragment extends BaseFragment implements BGARefreshLayout.BGARef
             showToast("没有最新数据了");
             return;
         }
+        showLoadingDialog();
         mEngine.loadNewData(mNewPageNumber).enqueue(new Callback<List<RefreshModel>>() {
             @Override
             public void onResponse(final Response<List<RefreshModel>> response, Retrofit retrofit) {
@@ -96,6 +97,7 @@ public class AFFFragment extends BaseFragment implements BGARefreshLayout.BGARef
                     @Override
                     public void run() {
                         mRefreshLayout.endRefreshing();
+                        dismissLoadingDialog();
                         mAdapter.addNewDatas(response.body());
                     }
                 }, MainActivity.LOADING_DURATION);
@@ -116,6 +118,7 @@ public class AFFFragment extends BaseFragment implements BGARefreshLayout.BGARef
             showToast("没有更多数据了");
             return false;
         }
+        showLoadingDialog();
         mEngine.loadMoreData(mMorePageNumber).enqueue(new Callback<List<RefreshModel>>() {
             @Override
             public void onResponse(final Response<List<RefreshModel>> response, Retrofit retrofit) {
@@ -124,6 +127,7 @@ public class AFFFragment extends BaseFragment implements BGARefreshLayout.BGARef
                     @Override
                     public void run() {
                         mRefreshLayout.endLoadingMore();
+                        dismissLoadingDialog();
                         mAdapter.addMoreDatas(response.body());
                     }
                 }, MainActivity.LOADING_DURATION);

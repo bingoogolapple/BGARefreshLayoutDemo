@@ -6,5 +6,6 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_recyclerview_data"
         style="@style/MatchAuto"
+        android:overScrollMode="never"
         android:scrollbars="none" />
 </cn.bingoogolapple.refreshlayout.BGARefreshLayout>

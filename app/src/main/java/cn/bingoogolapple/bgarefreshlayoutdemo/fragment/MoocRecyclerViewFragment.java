@@ -109,7 +109,6 @@ public class MoocRecyclerViewFragment extends BaseFragment implements BGARefresh
             return;
         }
 
-        showLoadingDialog();
         mEngine.loadNewData(mNewPageNumber).enqueue(new Callback<List<RefreshModel>>() {
             @Override
             public void onResponse(final Response<List<RefreshModel>> response, Retrofit retrofit) {
@@ -117,7 +116,6 @@ public class MoocRecyclerViewFragment extends BaseFragment implements BGARefresh
                     @Override
                     public void run() {
                         mRefreshLayout.endRefreshing();
-                        dismissLoadingDialog();
                         mAdapter.addNewDatas(response.body());
                         mDataRv.smoothScrollToPosition(0);
                     }
@@ -127,7 +125,6 @@ public class MoocRecyclerViewFragment extends BaseFragment implements BGARefresh
             @Override
             public void onFailure(Throwable t) {
                 mRefreshLayout.endRefreshing();
-                dismissLoadingDialog();
             }
         });
     }
@@ -141,7 +138,6 @@ public class MoocRecyclerViewFragment extends BaseFragment implements BGARefresh
             return false;
         }
 
-        showLoadingDialog();
         mEngine.loadMoreData(mMorePageNumber).enqueue(new Callback<List<RefreshModel>>() {
             @Override
             public void onResponse(final Response<List<RefreshModel>> response, Retrofit retrofit) {
@@ -149,7 +145,6 @@ public class MoocRecyclerViewFragment extends BaseFragment implements BGARefresh
                     @Override
                     public void run() {
                         mRefreshLayout.endLoadingMore();
-                        dismissLoadingDialog();
                         mAdapter.addMoreDatas(response.body());
                     }
                 }, MainActivity.LOADING_DURATION);
@@ -158,7 +153,6 @@ public class MoocRecyclerViewFragment extends BaseFragment implements BGARefresh
             @Override
             public void onFailure(Throwable t) {
                 mRefreshLayout.endLoadingMore();
-                dismissLoadingDialog();
             }
         });
 

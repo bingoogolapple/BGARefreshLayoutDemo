@@ -98,6 +98,7 @@ public class NormalListViewFragment extends BaseFragment implements BGARefreshLa
             showToast("没有最新数据了");
             return;
         }
+        showLoadingDialog();
         mEngine.loadNewData(mNewPageNumber).enqueue(new Callback<List<RefreshModel>>() {
             @Override
             public void onResponse(final Response<List<RefreshModel>> response, Retrofit retrofit) {
@@ -106,6 +107,7 @@ public class NormalListViewFragment extends BaseFragment implements BGARefreshLa
                     @Override
                     public void run() {
                         mRefreshLayout.endRefreshing();
+                        dismissLoadingDialog();
                         mAdapter.addNewDatas(response.body());
                     }
                 }, MainActivity.LOADING_DURATION);
@@ -114,6 +116,7 @@ public class NormalListViewFragment extends BaseFragment implements BGARefreshLa
             @Override
             public void onFailure(Throwable t) {
                 mRefreshLayout.endRefreshing();
+                dismissLoadingDialog();
             }
         });
     }
@@ -126,6 +129,7 @@ public class NormalListViewFragment extends BaseFragment implements BGARefreshLa
             showToast("没有更多数据了");
             return false;
         }
+        showLoadingDialog();
         mEngine.loadMoreData(mMorePageNumber).enqueue(new Callback<List<RefreshModel>>() {
             @Override
             public void onResponse(final Response<List<RefreshModel>> response, Retrofit retrofit) {
@@ -134,6 +138,7 @@ public class NormalListViewFragment extends BaseFragment implements BGARefreshLa
                     @Override
                     public void run() {
                         mRefreshLayout.endLoadingMore();
+                        dismissLoadingDialog();
                         mAdapter.addMoreDatas(response.body());
                     }
                 }, MainActivity.LOADING_DURATION);
@@ -142,6 +147,7 @@ public class NormalListViewFragment extends BaseFragment implements BGARefreshLa
             @Override
             public void onFailure(Throwable t) {
                 mRefreshLayout.endLoadingMore();
+                dismissLoadingDialog();
             }
         });
         return true;
