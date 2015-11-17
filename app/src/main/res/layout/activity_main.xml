@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical">
+
+    <Button
+        style="@style/MatchWrap"
+        android:onClick="testAFVPF"
+        android:text="测试AFVPF" />
+
+    <Button
+        style="@style/MatchWrap"
+        android:onClick="testAFF"
+        android:text="测试AFF" />
+
+    <cn.bingoogolapple.bgaindicator.BGAFixedIndicator
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/test_spacing4"
+        app:indicator_dividerColor="@color/srl_blue_bright"
+        app:indicator_dividerVerticalMargin="5dp"
+        app:indicator_dividerWidth="2dp"
+        app:indicator_hasDivider="true"
+        app:indicator_textColor="@color/selector_tab"
+        app:indicator_textSizeNormal="12sp"
+        app:indicator_textSizeSelected="14sp"
+        app:indicator_triangleColor="@color/srl_red_light"
+        app:indicator_triangleHeight="2dp"
+        app:indicator_triangleHorizontalMargin="5dp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_main_content"
+        style="@style/MatchMatch" />
+
+</LinearLayout>

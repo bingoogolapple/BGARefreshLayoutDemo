@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.bingoogolapple.refreshlayout.BGARefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_recyclerview_refresh"
+    style="@style/MatchMatch">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_recyclerview_data"
+        style="@style/MatchAuto"
+        android:scrollbars="none" />
+</cn.bingoogolapple.refreshlayout.BGARefreshLayout>

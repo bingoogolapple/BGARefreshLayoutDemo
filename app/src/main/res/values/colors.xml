@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">#CC31429D</color>
+    <color name="colorPrimary">#4054B2</color>
+    <color name="navigationBarColor">#31429D</color>
+
+
+    <color name="custom_imoocstyle">#eb4f38</color>
+    <color name="imoocstyle">#CA0612</color>
+
+    <color name="custom_stickiness">#11cd6e</color>
+    <color name="custom_stickiness2">#999999</color>
+
+    <color name="test_spacing1">#9674FC</color>
+    <color name="test_spacing2">#179641</color>
+    <color name="test_spacing3">#B2DB4D</color>
+    <color name="test_spacing4">#50E746</color>
+
+    <color name="tab_pressed">#3A95E3</color>
+    <color name="srl_blue_bright">#ff00ddff</color>
+    <color name="srl_green_light">#ff99cc00</color>
+    <color name="srl_orange_light">#ffffbb33</color>
+    <color name="srl_red_light">#ffff4444</color>
+</resources>
